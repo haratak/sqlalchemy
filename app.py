@@ -36,7 +36,7 @@ def bbs():
 #     db_session.commit()
 
 #     # index_result.htmlに返す
-    return render_template('index_result.html', article=article, name=name)
+    # return render_template('index_result.html', article=article, name=name)
 
 
 if __name__ == '__main__':
