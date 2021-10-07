@@ -3,8 +3,8 @@ from flask import Flask, request, render_template
 import datetime
 import os
 # データベースを使うにあたり追加
-from assets.database import db_session
-from assets.models import Data
+# from assets.database import db_session
+# from assets.models import Data
 
 app = Flask(__name__)
 
@@ -20,22 +20,22 @@ def bbs():
 
 
 # postメソッドを受け取る
-@app.route('/result', methods=['POST'])
-def result():
-    # requestでarticleとnameの値を取得する
-    article = request.form['article']
-    name = request.form['name']
-    # today関数でpostメソッドを受け取った日時を変数に代入
-    today = datetime.datetime.today()
+# @app.route('/result', methods=['POST'])
+# def result():
+#     # requestでarticleとnameの値を取得する
+#     article = request.form['article']
+#     name = request.form['name']
+#     # today関数でpostメソッドを受け取った日時を変数に代入
+#     today = datetime.datetime.today()
 
-    # index_resultからの情報をデータベースに書き込む
-    row = Data(name=name, article=article, timestamp=today)
-    print('do!!!')
-    db_session.add(row)
-    print('commit!!!')
-    db_session.commit()
+#     # index_resultからの情報をデータベースに書き込む
+#     row = Data(name=name, article=article, timestamp=today)
+#     print('do!!!')
+#     db_session.add(row)
+#     print('commit!!!')
+#     db_session.commit()
 
-    # index_result.htmlに返す
+#     # index_result.htmlに返す
     return render_template('index_result.html', article=article, name=name)
 
 
