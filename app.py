@@ -1,7 +1,7 @@
 #coding: utf-8
 from flask import Flask, request, render_template
 import datetime
-
+import os
 # データベースを使うにあたり追加
 from assets.database import db_session
 from assets.models import Data
@@ -40,7 +40,7 @@ def result():
 
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
 
 
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
