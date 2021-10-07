@@ -13,10 +13,10 @@ app = Flask(__name__)
 def bbs():
 
     # データベースから読み込む
-    # data = db_session.query(Data.name, Data.article, Data.timestamp).all()
+    data = db_session.query(Data.name, Data.article, Data.timestamp).all()
 
     # index.htmlに返す
-    return render_template('index.html', data=[])
+    return render_template('index.html', data=data)
 
 
 # postメソッドを受け取る
