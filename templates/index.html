@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <h1> にゃん子掲示板</h1>
+    <form action='/result' method='post'>
+        <label for='name'>にゃん子の名前</label>
+        <input type='text' name='name'>
+        <p></p>
+        <label for='article'>投稿</label>
+        <input type='text' name='article'>
+
+        <button type='submit'>書き込む</button>
+    </form>
+
+    <p></p>
+    <p></p>
+
+    <table border=1>
+        <tr>
+          <th>にゃん子の名前</th>
+          <th>投稿内容</th>
+          <th>投稿日時</th>
+        </tr>
+        {% for datum in data %}
+             <tr>
+              <td>{{datum[0]}}</td>
+              <td>{{datum[1]}}</td>
+              {% if datum[2] == None %}
+                  <td>{{datum[2]}}</td>
+              {% else %}
+                  <td>{{datum[2].strftime('%Y年%m月%d日/%H時%M分%S秒')}}</td>
+              {% endif %}
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}
