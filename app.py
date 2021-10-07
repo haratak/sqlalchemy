@@ -11,12 +11,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def bbs():
+    return "hello world!"
+    # # データベースから読み込む
+    # data = db_session.query(Data.name, Data.article, Data.timestamp).all()
 
-    # データベースから読み込む
-    data = db_session.query(Data.name, Data.article, Data.timestamp).all()
-
-    # index.htmlに返す
-    return render_template('index.html', data=data)
+    # # index.htmlに返す
+    # return render_template('index.html', data=data)
 
 
 # postメソッドを受け取る
