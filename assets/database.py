@@ -9,16 +9,18 @@ import datetime
 import os
 
 # data_dbという名前で、database.pyのある場所に（os.path.dirname(__file__)）、絶対パスで（os.path.abspath）、data_dbを保存する
-db_uri = os.environ.get('DATABASE_URL') or "postgresql://localhost/user_db"
-DATABASE = 'postgresql'
-USER = 'takuya'
-PASSWORD = 'postgres'
-HOST = 'localhost'
-PORT = '5432'
-DB_NAME = 'user_db'
+db_uri = os.environ.get('DATABASE_URL').replace("://", "ql://", 1)
 
-CONNECT_STR = '{}://{}:{}@{}:{}/{}'.format(
-    DATABASE, USER, PASSWORD, HOST, PORT, DB_NAME)
+# or "postgresql://localhost/user_db"
+# DATABASE = 'postgresql'
+# USER = 'takuya'
+# PASSWORD = 'postgres'
+# HOST = 'localhost'
+# PORT = '5432'
+# DB_NAME = 'user_db'
+
+# CONNECT_STR = '{}://{}:{}@{}:{}/{}'.format(
+#     DATABASE, USER, PASSWORD, HOST, PORT, DB_NAME)
 
 
 # database_file = os.path.join(os.path.abspath(
