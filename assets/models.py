@@ -10,7 +10,7 @@ from datetime import datetime as dt
 
 class Data(Base):
     # テーブルnameの設定,dataというnameに設定
-    __tablename__ = "data"
+    __tablename__ = "Users"
     # Column情報を設定、uniqueはFalseとする（同じ値でも認めるという意味）
     # 主キーは行を検索する時に必要、通常は設定しておく
     id = Column(Integer, primary_key=True)
