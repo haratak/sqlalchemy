@@ -13,8 +13,9 @@ database_file = os.path.join(os.path.abspath(
     os.path.dirname(__file__)), 'data.db')
 
 # データベースsqliteを使って（engin)、database_fileに保存されているdata_dbを使う、またechoで実行の際にsqliteを出す（echo=True)
-engine = create_engine('sqlite:///' + database_file,
-                       convert_unicode=True, echo=True)
+engine = create_engine(os.environ.get(
+    'DATABASE_URL') or 'sqlite:///' + database_file, convert_unicode=True, echo=True)
+
 db_session = scoped_session(
     sessionmaker(
         autocommit=False,
